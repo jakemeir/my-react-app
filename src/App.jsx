@@ -11,8 +11,13 @@ const App = () => {
     "https://images1.ynet.co.il/PicServer5/2019/09/22/9500723/11185255_11185066_rumble_490X0.jpg",
     "https://jfc.org.il/media/BAMAI/T26470_TUVIA_TZAFIR_MAIN.jpg",
   ];
+  const [check, setCheck] = useState(false);
 
   const [index, setIndex] = useState(0);
+
+  const carouselHandler = () => {
+    setCheck((prevCheck) => !prevCheck);
+  };
 
   const nextHandler = () => {
     setIndex((i) => (i + 1) % img.length);
@@ -28,9 +33,14 @@ const App = () => {
       <Button
         direction="previous"
         onNext={previousHandler}
-        isDisabled={false}
+        isDisabled={check && index === 0}
       />
-      <Button direction="next" onNext={nextHandler} isDisabled={false} />
+      <Button
+        direction={"next"}
+        onNext={nextHandler}
+        isDisabled={check && index === img.length - 1}
+      />
+      <Button direction={"carousel"} onNext={carouselHandler}></Button>
     </div>
   );
 };
