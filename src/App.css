@@ -2,4 +2,43 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.button_container {
+  display: flex;
+  margin-bottom: 2rem;
+  align-items: center;
+  gap: 2rem;
+}
+
+button {
+  background-color: unset;
+  border: none;
+}
+
+button:disabled {
+  opacity: 50%;
+}
+.imgDiv {
+  width: 25vw;
+  height: 25vw;
+  display: flex;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 0 4px rgba(253, 106, 2, 1), 16px 16px 0 0 rgba(253, 106, 2, 1);
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.stupid_carousel_button {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: rgba(253, 106, 2, 1);
+  border: 4px solid rgba(253, 106, 2, 1);
+  padding: 1rem;
+  border-radius: 10px;
 }

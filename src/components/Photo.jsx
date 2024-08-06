@@ -1,10 +1,9 @@
-import React from "react";
-import "./Photo.css";
+import "../App.css";
 
-const Photo = ({ src }) => {
+const Photo = ({ src, index }) => {
   return (
     <div className="imgDiv">
-      <img src={src} alt="" />
+      <img src={src} alt={`picture_${index}`} />
     </div>
   );
 };

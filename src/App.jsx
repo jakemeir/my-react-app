@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 import Photo from "./components/Photo";
 import Button from "./components/Button";
+import RightArrow from "./components/RightArrow";
+import LeftArrow from "./components/LeftArrow";
 
 const App = () => {
   const img = [
@@ -26,21 +28,26 @@ const App = () => {
   const previousHandler = () => {
     setIndex((i) => (i - 1 + img.length) % img.length);
   };
-
   return (
     <div className="flexBox">
-      <Photo src={img[index]} />
-      <Button
-        direction="previous"
-        onNext={previousHandler}
-        isDisabled={check && index === 0}
-      />
-      <Button
-        direction={"next"}
-        onNext={nextHandler}
-        isDisabled={check && index === img.length - 1}
-      />
-      <Button direction={"carousel"} onNext={carouselHandler}></Button>
+      <div className="button_container">
+        <Button
+          clickHandler={previousHandler}
+          direction="left"
+          isDisabled={check && index === 0}
+          svg={<LeftArrow />}
+        />
+        <Photo src={img[index]} index={index} />
+        <Button
+          clickHandler={nextHandler}
+          direction="right"
+          isDisabled={check && index === img.length - 1}
+          svg={<RightArrow />}
+        />
+      </div>
+      <button className="stupid_carousel_button" onClick={carouselHandler}>
+        {check ? "Enable Carousel" : "Disable Carousel"}
+      </button>
     </div>
   );
 };
