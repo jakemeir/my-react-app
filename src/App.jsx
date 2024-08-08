@@ -4,22 +4,18 @@ import Photo from "./components/Photo";
 import Button from "./components/Button";
 import RightArrow from "./components/RightArrow";
 import LeftArrow from "./components/LeftArrow";
+import { Link } from "react-router-dom";
 
-const App = () => {
+const App = ({ infinite }) => {
   const img = [
-    "https://i.ytimg.com/vi/HaYZk16wUug/maxresdefault.jpg",
-    "https://www.israelhayom.co.il/wp-content/uploads/2022/04/28/15287981395352_b-1280x960.jpg",
-    "https://www.edb.co.il/photos/1211974_person04.full.jpg",
-    "https://images1.ynet.co.il/PicServer5/2019/09/22/9500723/11185255_11185066_rumble_490X0.jpg",
-    "https://jfc.org.il/media/BAMAI/T26470_TUVIA_TZAFIR_MAIN.jpg",
+    "https://images.unsplash.com/photo-1662948391946-ab57966b3b8f",
+    "https://images.unsplash.com/photo-1723007967308-19cae2bc7e88",
+    "https://images.unsplash.com/photo-1470214304380-aadaedcfff84",
+    "https://images.unsplash.com/photo-1721819506270-af50411fc152",
+    "https://images.unsplash.com/photo-1722714619690-fa9fe88a90b5",
   ];
-  const [check, setCheck] = useState(false);
 
   const [index, setIndex] = useState(0);
-
-  const carouselHandler = () => {
-    setCheck((prevCheck) => !prevCheck);
-  };
 
   const nextHandler = () => {
     setIndex((i) => (i + 1) % img.length);
@@ -34,20 +30,23 @@ const App = () => {
         <Button
           clickHandler={previousHandler}
           direction="left"
-          isDisabled={check && index === 0}
+          isDisabled={infinite && index === 0}
           svg={<LeftArrow />}
         />
         <Photo src={img[index]} index={index} />
         <Button
           clickHandler={nextHandler}
           direction="right"
-          isDisabled={check && index === img.length - 1}
+          isDisabled={infinite && index === img.length - 1}
           svg={<RightArrow />}
         />
       </div>
       <button className="stupid_carousel_button" onClick={carouselHandler}>
         {check ? "Enable Carousel" : "Disable Carousel"}
       </button>
+
+      {infinite && <Link to={"infinite"}>infinite</Link>}
+      {infinite || <Link to={"/"}>back</Link>}
     </div>
   );
 };
