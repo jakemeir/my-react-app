@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 
 const App = ({ infinite }) => {
   const img = [
-    "https://i.ytimg.com/vi/HaYZk16wUug/maxresdefault.jpg",
-    "https://www.israelhayom.co.il/wp-content/uploads/2022/04/28/15287981395352_b-1280x960.jpg",
-    "https://www.edb.co.il/photos/1211974_person04.full.jpg",
-    "https://images1.ynet.co.il/PicServer5/2019/09/22/9500723/11185255_11185066_rumble_490X0.jpg",
-    "https://jfc.org.il/media/BAMAI/T26470_TUVIA_TZAFIR_MAIN.jpg",
+    "https://images.unsplash.com/photo-1662948391946-ab57966b3b8f",
+    "https://images.unsplash.com/photo-1723007967308-19cae2bc7e88",
+    "https://images.unsplash.com/photo-1470214304380-aadaedcfff84",
+    "https://images.unsplash.com/photo-1721819506270-af50411fc152",
+    "https://images.unsplash.com/photo-1722714619690-fa9fe88a90b5",
   ];
 
   const [index, setIndex] = useState(0);
