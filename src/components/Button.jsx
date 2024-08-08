@@ -1,9 +1,9 @@
-import React from "react";
+import "../App.css";
 
-const Button = ({ direction, onNext, isDisabled }) => {
+const Button = ({ svg, clickHandler, isDisabled }) => {
   return (
-    <button onClick={onNext} disabled={isDisabled}>
-      {direction}
+    <button onClick={clickHandler} disabled={isDisabled}>
+      {svg}
     </button>
   );
 };
