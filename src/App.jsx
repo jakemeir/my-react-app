@@ -41,9 +41,6 @@ const App = ({ infinite }) => {
           svg={<RightArrow />}
         />
       </div>
-      <button className="stupid_carousel_button" onClick={carouselHandler}>
-        {check ? "Enable Carousel" : "Disable Carousel"}
-      </button>
 
       {infinite && <Link to={"infinite"}>infinite</Link>}
       {infinite || <Link to={"/"}>back</Link>}
