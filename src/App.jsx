@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 import Photo from "./components/Photo";
 import Button from "./components/Button";
+import RightArrow from "./components/RightArrow";
+import LeftArrow from "./components/LeftArrow";
 import { Link } from "react-router-dom";
 
 const App = ({ infinite }) => {
@@ -22,20 +24,24 @@ const App = ({ infinite }) => {
   const previousHandler = () => {
     setIndex((i) => (i - 1 + img.length) % img.length);
   };
-
   return (
     <div className="flexBox">
-      <Photo src={img[index]} />
-      <Button
-        direction="previous"
-        onNext={previousHandler}
-        isDisabled={infinite && index === 0}
-      />
-      <Button
-        direction={"next"}
-        onNext={nextHandler}
-        isDisabled={infinite && index === img.length - 1}
-      />
+      <div className="button_container">
+        <Button
+          clickHandler={previousHandler}
+          direction="left"
+          isDisabled={infinite && index === 0}
+          svg={<LeftArrow />}
+        />
+        <Photo src={img[index]} index={index} />
+        <Button
+          clickHandler={nextHandler}
+          direction="right"
+          isDisabled={infinite && index === img.length - 1}
+          svg={<RightArrow />}
+        />
+      </div>
+
       {infinite && <Link to={"infinite"}>infinite</Link>}
       {infinite || <Link to={"/"}>back</Link>}
     </div>
